@@ -40,19 +40,19 @@ APP_URL=https://intimate-anteater-primary.ngrok-free.app
 
 ```bash
 composer install
-./sail artisan telegram:set-webhook-endpoint
 ```
 
 4. Запустите контейнеры с помощью Laravel Sail:
 ```bash
-./vendor/bin/sail up -d
+make up
 ```
 
 5. Установите зависимости и выполните миграции:
 ```bash
-./vendor/bin/sail composer install
-./vendor/bin/sail artisan key:generate
-./vendor/bin/sail artisan migrate --seed
+./sail composer install
+./sail artisan key:generate
+./sail artisan telegram:set-webhook-endpoint
+./sail artisan migrate 
 
 ```
 
@@ -73,13 +73,13 @@ composer install
 Для обработки очереди задач, вы можете использовать консольную команду:
 
 ```bash 
-./vendor/bin/sail artisan queue:work
+./sail artisan queue:work
 ```
 
 Для запуска консольной команды, которая получает задачи и отправляет уведомления:
 
 ```bash
-./vendor/bin/sail artisan notify-tasks
+./sail artisan notify-tasks
 ```
 
 ## Тесты
@@ -87,7 +87,7 @@ composer install
 Для запуска тестов:
 
 ```bash
-./vendor/bin/sail artisan test
+make test
 ```
 
 ## API Документация
